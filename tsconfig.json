@@ -1,0 +1,16 @@
+{
+   "compilerOptions": {
+      "lib": [
+         "es6",
+         "esnext.asynciterable"
+      ],
+      "target": "es2016",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "./build",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true
+   },
+   "include": ["./src/**/*"]
+}
