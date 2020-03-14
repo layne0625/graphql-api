@@ -1,8 +1,7 @@
 import { ObjectType, Field, ID, Int } from 'type-graphql'
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
 
-
-export enum CategoryLevel  {
+export enum CategoryLevel {
   first,
   second,
   third
@@ -10,7 +9,7 @@ export enum CategoryLevel  {
 
 @Entity()
 @ObjectType()
-export class Category extends BaseEntity {
+export class Category {
   @Field(type => ID)
   @PrimaryGeneratedColumn()
   id: number
@@ -25,6 +24,9 @@ export class Category extends BaseEntity {
 
   @Field(type => Category, { nullable: true })
   @ManyToOne(type => Category, category => category.parent)
-  parent?: Category 
-  
+  parent?: Category
+
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  image?: string
 }
